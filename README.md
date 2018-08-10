@@ -1,2 +1,4 @@
-# rt-pet-clinic
-Tutorial Spring5 - Pet Clinic
+# Tutorial Spring5 - Pet Clinic
+
+Following Spring Framework Guru.
+
