@@ -1,4 +1,4 @@
-package auyamatech.com.rtpetclinic.model;
+package com.auyamatech.rtpetclinic.model;
 
 public class PetType {
 

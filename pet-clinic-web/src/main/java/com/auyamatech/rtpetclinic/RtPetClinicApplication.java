@@ -1,4 +1,4 @@
-package auyamatech.com.rtpetclinic;
+package com.auyamatech.rtpetclinic;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
