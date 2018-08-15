@@ -1,4 +1,4 @@
-package rtpetclinic;
+package com.auyamatech.rtpetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
