@@ -1,11 +1,11 @@
 package com.auyamatech.rtpetclinic.services.map;
 
 import com.auyamatech.rtpetclinic.model.Vet;
-import com.auyamatech.rtpetclinic.services.CrudService;
+import com.auyamatech.rtpetclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
