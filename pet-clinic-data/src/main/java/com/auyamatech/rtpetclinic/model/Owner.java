@@ -1,6 +1,5 @@
 package com.auyamatech.rtpetclinic.model;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,7 +39,7 @@ public class Owner extends Person {
     }
 
     public Set<Pet> getPets() {
-        return Collections.unmodifiableSet(pets);
+        return pets;
     }
 
     public void setPets(Set<Pet> pets) {
