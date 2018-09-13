@@ -1,12 +1,12 @@
 package com.auyamatech.rtpetclinic.services.map;
 
 import com.auyamatech.rtpetclinic.model.Speciality;
-import com.auyamatech.rtpetclinic.services.SpecialitiesService;
+import com.auyamatech.rtpetclinic.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
-public class SpecialitityMapService extends AbstractMapService<Speciality, Long>  implements SpecialitiesService {
+public class SpecialityMapService extends AbstractMapService<Speciality, Long>  implements SpecialityService {
 
     @Override
     public Set<Speciality> findAll() {
