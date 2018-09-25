@@ -2,9 +2,9 @@ package com.auyamatech.rtpetclinic.sprindatajpa;
 
 import com.auyamatech.rtpetclinic.model.Owner;
 import com.auyamatech.rtpetclinic.repositories.OwnerRepository;
+import com.auyamatech.rtpetclinic.repositories.PetRepository;
+import com.auyamatech.rtpetclinic.repositories.PetTypeRepository;
 import com.auyamatech.rtpetclinic.services.OwnerService;
-import com.auyamatech.rtpetclinic.services.PetService;
-import com.auyamatech.rtpetclinic.services.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +16,13 @@ import java.util.Set;
 public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
-    private final PetService petService;
-    private final PetTypeService petTypeService;
+    private final PetRepository petRepository;
+    private final PetTypeRepository petTypeRepository;
 
-    public OwnerSDJpaService(OwnerRepository ownerRepository, PetService petService, PetTypeService petTypeService) {
+    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
         this.ownerRepository = ownerRepository;
-        this.petService = petService;
-        this.petTypeService = petTypeService;
+        this.petRepository = petRepository;
+        this.petTypeRepository = petTypeRepository;
     }
 
     @Override
