@@ -44,7 +44,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
                         }
 
                     } else {
-                        throw new RuntimeException("PetType is required!");
+                        throw new RuntimeException("PetTypeRepository is required!");
                     }
                 });
             }
