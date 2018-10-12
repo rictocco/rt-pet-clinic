@@ -21,12 +21,11 @@ public class OwnerController {
     public String listOwners(Model model) {
         model.addAttribute("owners", ownerService.findAll());
 
-        return "/owners/index";
+        return "owners/index";
     }
 
     @RequestMapping("/find")
     public String findOwners() {
-
         return "notimplemented";
     }
 
