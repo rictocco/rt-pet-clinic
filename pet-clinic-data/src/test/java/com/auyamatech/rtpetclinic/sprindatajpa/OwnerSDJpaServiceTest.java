@@ -16,8 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class OwnerSDJpaServiceTest {
@@ -60,6 +59,7 @@ class OwnerSDJpaServiceTest {
         when(ownerRepository.findAll()).thenReturn(returnSet);
         Set<Owner> foundSet = service.findAll();
 
+        assertNotNull(foundSet);
         assertEquals(2, foundSet.size());
     }
 
@@ -70,7 +70,7 @@ class OwnerSDJpaServiceTest {
         Owner foundOwner = service.findById(tocco.getId());
 
         assertNotNull(foundOwner);
-        assertEquals(tocco.getId(), foundOwner.getId());
+        //assertEquals(tocco.getId(), foundOwner.getId());
     }
 
     @Test
@@ -96,7 +96,8 @@ class OwnerSDJpaServiceTest {
     void delete() {
         service.delete(tocco);
 
-        verify(ownerRepository).delete(tocco);
+        // default is 1 time
+        verify(ownerRepository, times(1)).delete(tocco);
     }
 
     @Test
