@@ -127,12 +127,12 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
-                <configuration>
-                <argLine>-Xmx1024m -Xms1024m -XX:MaxPermSize=512m -Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
-                <includes>
-                    <include>**/*Test.java</include>
-                </includes>
-            </configuration>
+                <!--<configuration>-->
+                    <!--<argLine>-Xmx1024m -Xms1024m -XX:MaxPermSize=512m -Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>-->
+                    <!--<includes>-->
+                        <!--<include>**/*Test.java</include>-->
+                    <!--</includes>-->
+                <!--</configuration>-->
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
