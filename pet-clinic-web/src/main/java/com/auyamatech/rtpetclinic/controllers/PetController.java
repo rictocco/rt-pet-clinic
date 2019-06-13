@@ -42,7 +42,7 @@ public class PetController {
         return ownerService.findById(ownerId);
     }
 
-    @ModelAttribute("types")
+    @ModelAttribute("owner")
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
