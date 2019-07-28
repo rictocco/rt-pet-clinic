@@ -42,7 +42,7 @@ public class PetController {
         return ownerService.findById(ownerId);
     }
 
-    @ModelAttribute("owner")
+    @InitBinder("owner")
     public void initOwnerBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
@@ -91,5 +91,6 @@ public class PetController {
             return "redirect:/owners/" + owner.getId();
         }
     }
+
 
 }

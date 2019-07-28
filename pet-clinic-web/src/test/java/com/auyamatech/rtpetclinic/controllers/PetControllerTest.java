@@ -69,9 +69,9 @@ public class PetControllerTest {
     void processCreationForm() throws Exception {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
-        when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
+//        when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
 
-        mockMvc.perform(post("/owners/1/pets/2/new"))
+        mockMvc.perform(post("/owners/1/pets/new"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
 
@@ -85,19 +85,36 @@ public class PetControllerTest {
         when(petService.findById(anyLong())).thenReturn(Pet.builder().id(2L).build());
 
         mockMvc.perform(get("/owners/1/pets/2/edit"))
-                .andExpect(status().is3xxRedirection())
+                .andExpect(status().isOk())
+                .andExpect(model().attributeExists("owner"))
+                .andExpect(model().attributeExists("pet"))
+                .andExpect(view().name("pets/createOrUpdatePetForm"));
+    }
+
+    @Test
+    void processUpdateForm() throws Exception{
+        when(ownerService.findById(anyLong())).thenReturn(owner);
+        when(petTypeService.findAll()).thenReturn(petTypes);
+
+        mockMvc.perform(post("/owners/1/pets/2/edit"))
+                .andExpect((status().is3xxRedirection()))
                 .andExpect(view().name("redirect:/owners/1"));
 
         verify(petService).save(any());
     }
 
     @Test
-    void processUpdateForm() throws Exception{
-        when(ownerService.findById(any())).thenReturn(owner.builder().id(1L).build());
-        when(petService.findById(any())).thenReturn(Pet.builder().id(2L).build());
+    void populatePetTypes() {
+        //todo impl
+    }
 
-        mockMvc.perform(post("owners/1/pets/2/edit"))
-                .andExpect((status().is3xxRedirection()))
-                .andExpect(view().name("redirect:/owners/1"));
+    @Test
+    void findOwner() {
+        //todo impl
+    }
+
+    @Test
+    void initOwnerBinder() {
+        //todo impl
     }
 }
