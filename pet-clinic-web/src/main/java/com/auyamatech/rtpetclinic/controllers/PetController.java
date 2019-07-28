@@ -47,21 +47,13 @@ public class PetController {
         dataBinder.setDisallowedFields("id");
     }
 
-//      ASI LO IMPLEMENTE YO!
-//    @GetMapping("/pets/new")
-//    public String initAddNewPet(Model model, @PathVariable("ownerId") Long ownerId) {
-//        Owner owner = ownerService.findById(ownerId);
-//        model.addAttribute("owner", owner);
-//        model.addAttribute("pet", Pet.builder().owner(owner).build());
-//        return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
-//    }
-
     @GetMapping("/pets/new")
     public String initCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
         pet.setOwner(owner);
-        model.addAttribute("pet", Pet.builder().owner(owner).build());
+//        model.addAttribute("pet", Pet.builder().owner(owner).build());
+        model.addAttribute("pet", pet);
         return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -76,6 +68,25 @@ public class PetController {
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         }
         else {
+            petService.save(pet);
+            return "redirect:/owners/" + owner.getId();
+        }
+    }
+
+    @GetMapping("/pets/{petId}/edit")
+    public String initUpdateForm(@PathVariable Long petId, Model model) {
+        model.addAttribute("pet", petService.findById(petId));
+        return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
+    }
+
+    @PostMapping("/pets/{petId}/edit")
+    public String processUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
+        if (result.hasErrors()) {
+            pet.setOwner(owner);
+            model.addAttribute("pet", pet);
+            return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
+        } else {
+            owner.getPets().add(pet);
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }
